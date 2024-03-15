@@ -1,4 +1,5 @@
-<ng-container *ngIf="products.length != 0">
+<div class="container" [ngClass]="{'blur': isDialogOpen}">
+    <ng-container *ngIf="products.length != 0" >
     <div class="container">
         <div class="card-table">
             <div class="cart-product">
@@ -32,7 +33,7 @@
                         <td colspan="4"></td>
                         <td><div><button (click)="emptyCart()"  class="btn btn-danger"> Empty Cart</button></div></td>
                         <td><div><button routerLink="/products" class="btn btn-primary"> Shop More</button></div></td>
-                        <td><div><button class="btn btn-success"> CheckOut</button></div></td>
+                        <td><div><button class="btn btn-success" (click)="openDialog()"> CheckOut</button></div></td>
                         <td><div><strong> Grand Total: ${{grandTotal}}</strong></div></td>
                     </tbody>
                 </table>
@@ -57,3 +58,16 @@
     </div>
     
 </ng-container>
+</div>
+<div *ngIf="isDialogOpen === true" class="dialog-container px-2 py-3">
+    <h1 class="modal-title fs-5 text-center" style="font-size: 16px; font-weight: bold; color: #081d3a">Check Out for Goods</h1>
+    <hr class="mt-0">
+    <div>
+        <h4 class="mt-2 text-center" style="font-size: 20px; color: #081D3A; margin-bottom: 0;">
+            You have paid successfully!
+        </h4>
+    </div>
+    <div class="mt-4 float-end">
+        <button type="button" class="btn btn-primary close-btn px-4 me-3" (click)="closeDialog()">Close</button>
+    </div>
+  </div>

@@ -10,6 +10,7 @@ export class CartComponent implements OnInit {
 
   public products: any = [];
   public grandTotal! : number;
+  isDialogOpen: boolean = false;
 
   constructor(private cartService: CartService) { }
 
@@ -25,5 +26,12 @@ export class CartComponent implements OnInit {
   }
   emptyCart(){
     this.cartService.removeAllCart();
+  }
+
+  closeDialog(): void {
+    this.isDialogOpen = false;
+  }
+  openDialog(): void {
+    this.isDialogOpen = true;
   }
 }

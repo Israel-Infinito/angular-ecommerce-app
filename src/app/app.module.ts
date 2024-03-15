@@ -22,7 +22,8 @@ import { FilterPipe } from './shared/filter.pipe';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+ 
   ],
   providers: [],
   bootstrap: [AppComponent]
